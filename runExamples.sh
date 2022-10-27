@@ -15,6 +15,6 @@ then
 fi
 MINE=`head -n $1 imagefile.txt | tail -n 1`
 
-python RunSearch.py --seed $2 $MINE
+python ./see-segment/see/RunSearch.py --seed $2 $MINE
 
 echo "FINNISHED RUNNING SCRIPT"
