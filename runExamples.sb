@@ -10,6 +10,6 @@ singularity exec -B /usr/bin/:/sysbin/ \
                  --env PATH=/miniconda3/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/sysbin/ \
                  --writable-tmpfs \
                  centos7.sif \
-                 source runExample.sh $SLURM_ARRAY_TASK_ID $SLURM_JOB_ID
+                 ./runExample.sh $SLURM_ARRAY_TASK_ID $SLURM_JOB_ID
 
 echo "FINNISHED RUNNING JOB"
