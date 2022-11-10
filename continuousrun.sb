@@ -1,7 +1,13 @@
 #!/bin/bash
-#SBATCH --array=1-15
+#SBATCH --array=1-8,10-15
 #SBATCH --time=24:00:00
 #SBATCH --mem=6gb
+
+module load conda
+conda activate ./envs
+
+echo "Number $SLURM_ARRAY_TASK_ID"
+
 
 echo "Number $SLURM_ARRAY_TASK_ID"
 
@@ -10,6 +16,13 @@ singularity exec -B /usr/bin/:/sysbin/ \
                  --env PATH=/miniconda3/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/sysbin/ \
                  --writable-tmpfs \
                  centos7.sif \
-                 ./runExample.sh $SLURM_ARRAY_TASK_ID $SLURM_JOB_ID
+                 ./runExample.sh $SLURM_ARRAY_TASK_ID $SLURM_JOB_ID &
 
-echo "FINNISHED RUNNING JOB"
+export PID=$!
+
+sleep 85800 
+kill $PID 
+
+sbatch --array=${SLURM_ARRAY_TASK_ID} continuousrun.sb 
+
+echo "FINNISHED RUNNING SCRIPT"

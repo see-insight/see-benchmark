@@ -5,8 +5,10 @@
 git clone git@github.com:see-insight/see-segment.git
 
 create_jupyter_singularity_overlay
-  
-overlay_exec source activate_conda.sh; conda env update --file ./see-segment/environment.yml
+
+overlay_exec conda shell.bash activate > activate_conda.sh
+chmod 775 activate_conda.sh  
+overlay_exec ./activate_conda.sh; conda env update --file ./see-segment/environment.yml
 
 singularity build centos7.sif /opt/software/CentOS.container/7.4/bin/centos
 
