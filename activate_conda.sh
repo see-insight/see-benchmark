@@ -1,14 +1,10 @@
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+PS1='(base) Singularity> '
+export PATH='/miniconda3/bin:/miniconda3/condabin:/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/sysbin'
+export CONDA_PREFIX='/miniconda3'
+export CONDA_SHLVL='1'
+export CONDA_DEFAULT_ENV='base'
+export CONDA_PROMPT_MODIFIER='(base) '
+export CONDA_EXE='/miniconda3/bin/conda'
+export _CE_M=''
+export _CE_CONDA=''
+export CONDA_PYTHON_EXE='/miniconda3/bin/python'
