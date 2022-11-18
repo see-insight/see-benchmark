@@ -17,9 +17,9 @@ WAIT.......
 
 Step 2: Run a test localy
 
-```./testrunlocal.sh
+```./testrunlocal.sh```
 
-<<ctrl-c to stop>>```
+```<<ctrl-c to stop>>```
 
 Step 3: Run continuous run script
 
