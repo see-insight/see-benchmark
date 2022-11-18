@@ -1,10 +1,7 @@
 #!/bin/bash
 
-
 export SLURM_ARRAY_TASK_ID=$1
-
 export SLURM_JOB_ID=$2
-
 
 if [ "$1" == "" ]
 then
