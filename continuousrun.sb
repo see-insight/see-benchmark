@@ -4,7 +4,6 @@
 #SBATCH --mem=6gb
 
 module load conda
-conda activate ./envs
 
 echo "Number $SLURM_ARRAY_TASK_ID"
 
