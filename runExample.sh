@@ -5,13 +5,13 @@ export PYTHONPATH="./see-segment/"
 
 if [ ! -f imagefile.txt ]
 then
-	touch imagefile.txt
+    touch imagefile.txt
 
-        for GT in ./see-segment/Image_data/Examples/*GT*
-        do
-	    ROOTNAME=`echo $GT | sed -e "s/_GT.*$//"`
-	    echo `echo ${ROOTNAME}.*` $GT >> imagefile.txt
-        done
+    for GT in ./see-segment/Image_data/Examples/*GT*
+    do
+       ROOTNAME=`echo $GT | sed -e "s/_GT.*$//"`
+    echo `echo ${ROOTNAME}.*` $GT >> imagefile.txt
+    done
 fi
 MINE=`head -n $1 imagefile.txt | tail -n 1`
 
