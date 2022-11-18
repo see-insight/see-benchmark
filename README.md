@@ -1,35 +1,30 @@
 # see-benchmark
 Tools for running research benchmarks on shared HPC systems
 
-## Install see-segment
-The following instructions will assume see-segment is installed in this directory
-
-```git clone git@github.com:see-insight/see-segment.git```
-
 ## HPCC singularity overlay
 
-Step 1: create an overlay  
-```create_jupyter_singularity_overlay```
-  
-```overlay_start```
-  
-```source activate_conda.sh```
+Step 0: Clone this repository
 
-```conda env update --file ./see-segment/environment.yml```
+```git clone https://github.com/see-insight/see-benchmark.git``` 
+
+```cd see-benchmark```
+
+Step 1: Run the installer  
+
+```source INSTALL.sh```
 
 WAIT.......
 
-```exit```
+Step 2: Run a test localy
 
-```singularity build centos7.sif /opt/software/CentOS.container/7.4/bin/centos```
+```./testrunlocal.sh
 
-```singularity sif add --datatype 4 --partfs 2 --parttype 4 --partarch 2 --groupid 1 centos7.sif overlay.img```
+<<ctrl-c to stop>>```
 
-## Testing See segment
-Go into the see-segment folder and run the following command:
+Step 3: Run continuous run script
 
-```make test```
 
+```sbatch continuousrun.sb```
 
 
 
