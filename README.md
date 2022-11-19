@@ -38,7 +38,7 @@ For these steps to work you need access to the "beta" group to use a singularity
 In case you need it, here are resonable useful settings:
 
 | Setting | Default Values |
-|=========|================|
+|---------|----------------|
 | Number of Hours | 4 |
 | Number of cores per task | 1 |
 | Amount of Memory | 5gb |
@@ -48,7 +48,7 @@ In case you need it, here are resonable useful settings:
 | ReadOnly | unchecked |
 | Path to Overlay Image | Set this to your overlay.img path |
 
-
+5. Open the ContinuousArray.ipynb and run to view results.
 
 
 
