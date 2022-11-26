@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --array=1-15
+#SBATCH --array=9
 #SBATCH --time=24:00:00
 #SBATCH --mem=6gb
 
@@ -9,6 +9,7 @@ echo "Number $SLURM_ARRAY_TASK_ID"
 singularity exec -B /usr/bin/:/sysbin/ \
                  --env PATH=/miniconda3/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/sysbin/ \
                  --writable-tmpfs \
+                 --env-file /opt/software/powertools/share/jupyter.env \
                  centos7.sif \
                  ./runExample.sh $SLURM_ARRAY_TASK_ID $SLURM_JOB_ID
 

@@ -1,22 +1,25 @@
 #!/bin/bash
-#SBATCH --array=1-8,10-15
-#SBATCH --time=24:00:00
+#SBATCH --array=1-15
+#SBATCH --time=4:00:00
 #SBATCH --mem=6gb
 
 echo "Number $SLURM_ARRAY_TASK_ID"
 
+# 24 hours 85800
+# 4 hours 14100 
 
-singularity exec -B /usr/bin/:/sysbin/ \
+timeout 14100s singularity exec -B /usr/bin/:/sysbin/ \
                  --env PATH=/miniconda3/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/sysbin/ \
                  --writable-tmpfs \
+                 --env-file /opt/software/powertools/share/jupyter.env \
                  centos7.sif \
-                 ./runExample.sh $SLURM_ARRAY_TASK_ID $SLURM_JOB_ID &
+                 ./runExample.sh $SLURM_ARRAY_TASK_ID $SLURM_JOB_ID
+out=$?
+echo "CHECKING FOR ERRORS"
 
-export PID=$!
-
-sleep 85800 
-kill $PID 
-
-sbatch --array=${SLURM_ARRAY_TASK_ID} continuousrun.sb 
-
-echo "FINNISHED RUNNING SCRIPT"
+if [ "$out" == "124" ] #TIMEOUT REACHED
+then
+    echo "Timeout...RESTARTING $out"
+    sbatch --array=${SLURM_ARRAY_TASK_ID} continuousrun.sb 
+fi
+echo "ERROR: $out - NO RESTART"
