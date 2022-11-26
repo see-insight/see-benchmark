@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --array=1-15
+#SBATCH --array=1-30
 #SBATCH --time=4:00:00
 #SBATCH --mem=6gb
 
@@ -21,5 +21,7 @@ if [ "$out" == "124" ] #TIMEOUT REACHED
 then
     echo "Timeout...RESTARTING $out"
     sbatch --array=${SLURM_ARRAY_TASK_ID} continuousrun.sb 
+else
+    echo "ERROR: $out - NO RESTART"
 fi
-echo "ERROR: $out - NO RESTART"
+
