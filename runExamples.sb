@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --array=9
+#SBATCH --array=1-150
 #SBATCH --time=24:00:00
 #SBATCH --mem=6gb
 
@@ -11,6 +11,6 @@ singularity exec -B /usr/bin/:/sysbin/ \
                  --writable-tmpfs \
                  --env-file /opt/software/powertools/share/jupyter.env \
                  centos7.sif \
-                 ./runExample.sh $SLURM_ARRAY_TASK_ID $SLURM_JOB_ID
+                 ./runExample.sh $SLURM_ARRAY_TASK_ID $(( $SLURM_JOB_ID + $SLURM_ARRAY_TASK_ID ))
 
 echo "FINNISHED RUNNING JOB"
