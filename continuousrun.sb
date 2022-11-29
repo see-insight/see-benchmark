@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --array=1-30
+#SBATCH --array=1-150
 #SBATCH --time=4:00:00
 #SBATCH --mem=6gb
 
@@ -13,7 +13,7 @@ timeout 14100s singularity exec -B /usr/bin/:/sysbin/ \
                  --writable-tmpfs \
                  --env-file /opt/software/powertools/share/jupyter.env \
                  centos7.sif \
-                 ./runExample.sh $SLURM_ARRAY_TASK_ID $SLURM_JOB_ID
+                 ./runExample.sh $SLURM_ARRAY_TASK_ID $(( $SLURM_ARRAY_TASK_ID + $SLURM_JOB_ID ))
 out=$?
 echo "CHECKING FOR ERRORS"
 
