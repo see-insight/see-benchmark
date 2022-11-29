@@ -20,7 +20,15 @@ MY_NUM=$(( ( $1 - 1 ) % $NUM_IMG + 1 ))
 
 MINE=`head -n $MY_NUM imagefile.txt | tail -n 1`
 
-python ./see-segment/see/RunSearch.py --num_iter 1000000 --seed $2 $MINE
+continiuous=""
+
+if [ ! "$3" == "" ]
+then
+    continuous="--checkpoint run"
+fi
+
+
+python ./see-segment/see/RunSearch.py ${continuous} --num_iter 1000000 --seed $2 $MINE
 ret=$?
 
 echo "FINNISHED RUNNING SCRIPT with error $ret"
