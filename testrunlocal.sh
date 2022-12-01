@@ -14,4 +14,4 @@ then
 fi
 
 
-source ./continuousrun.sb
+source ./runExamples.sb
