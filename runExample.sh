@@ -3,6 +3,8 @@
 export IMGNUM=$1
 export PYTHONPATH="./see-segment/"
 
+echo "Running on $HOSTNAME"
+
 if [ ! -f imagefile.txt ]
 then
     touch imagefile.txt
