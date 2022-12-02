@@ -4,7 +4,7 @@
 #SBATCH --mem=6gb
 #SBATCH --job-name=SEE
 
-echo "Number $SLURM_ARRAY_TASK_ID"
+echo "RunExamples Number $SLURM_ARRAY_TASK_ID"
 
 
 singularity exec -B /usr/bin/:/sysbin/ \

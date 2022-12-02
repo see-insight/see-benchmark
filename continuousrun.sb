@@ -4,7 +4,7 @@
 #SBATCH --mem=6gb
 #SBATCH --job-name=SEE
 
-echo "Number $SLURM_ARRAY_TASK_ID"
+echo "Continuous Run Number $SLURM_ARRAY_TASK_ID"
 
 # 24 hours 85800
 # 4 hours 14100 
