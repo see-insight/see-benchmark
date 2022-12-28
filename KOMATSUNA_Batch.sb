@@ -13,7 +13,7 @@ echo "Continuous Run Number $SLURM_ARRAY_TASK_ID"
 
 #TODO Change location of best_so_far to Continous_Output folder
 
-timeout 14100s singularity exec -B /usr/bin/:/sysbin/ \
+timeout 85800s singularity exec -B /usr/bin/:/sysbin/ \
                  --env PATH=/miniconda3/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/sysbin/ \
                  --writable-tmpfs \
                  --env-file /opt/software/powertools/share/jupyter.env \

@@ -41,8 +41,14 @@ random.seed(args.seed)
 
 # In[]:
 
+
+
 # put data in a pipeline
 data = base_classes.pipedata()
+
+print(f"#{input_file=}")
+print(f"#{input_mask=}")
+
 
 #TODO make this a KOMATSUNA measure
 data.img = imageio.imread(imagenames[args.knum])
