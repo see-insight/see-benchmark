@@ -41,27 +41,20 @@ random.seed(args.seed)
 
 # In[]:
 
-
-
-# put data in a pipeline
-data = base_classes.pipedata()
+input_file=imagenames[args.knum]
+input_mask=masknames[args.knum]
 
 print(f"#{input_file=}")
 print(f"#{input_mask=}")
 
-
-#TODO make this a KOMATSUNA measure
-data.img = imageio.imread(imagenames[args.knum])
-data.gmask = imageio.imread(imagenames[args.knum])
-
+mydata = base_classes.pipedata()
+mydata.append(imageio.imread(input_file))
+mydata.gtruth= imageio.imread(input_mask)
 
 # In[]:
 #define an algorithm workflow
 workflow.addalgos([colorspace, segmentor, segment_fitness])
 
-mydata = base_classes.pipedata()
-mydata.append(data.img)
-mydata.gtruth = data.gmask
 #def geneticsearch
 my_evolver = GeneticSearch.Evolver(workflow, mydata, pop_size=10)
             

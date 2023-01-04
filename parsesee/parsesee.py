@@ -6,9 +6,9 @@ import re
 
 
 def getslurmoutputfiles(directory='.'):
+    '''Get all of files with the out extention in a directory'''
     slurmoutdir = Path(directory)
     slurmfiles = slurmoutdir.glob('*.out')
-
     filelist = []
 
     for file in slurmfiles:
@@ -35,6 +35,7 @@ def parseoutput(filename):
     bestsofar = []
     stats = {}
     times = []
+    with open(filename, "r") as f:
         index = 0
         for line in f:
             if 'TRUE_BST' in line:
@@ -45,9 +46,9 @@ def parseoutput(filename):
                 x = [index] + x
                 bestsofar.append(x)
             if '#input_file' in line:
-                stats['input_file'] = item.split('=')[1]
+                stats['input_file'] = line.split('=')[1]
             if '#mask_file' in line:
-                stats['mask_file'] = item.split('=')[1]
+                stats['mask_file'] = line.split('=')[1]
             if 'Namespace' in line:
                 data = line[10:-2].split(',')
                 for item in data:
@@ -84,7 +85,12 @@ def parseall(df):
 
     rundata = {}
     for arrayid in mystats:
-        key = Path(mystats[arrayid]['input_file'][1:-1]).stem
+        #print(mystats[arrayid]['input_file'])
+        if 'input_file' in mystats[arrayid]:
+            key = Path(mystats[arrayid]['input_file'][1:-1]).stem
+        else:
+            key=f"nullname_arrayid"
+        #print(key)
         if not key in rundata:
             rundata[key] = mystats[arrayid]
             rundata[key]['iterations'] = [iterations[arrayid]]
