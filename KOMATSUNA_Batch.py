@@ -41,8 +41,10 @@ random.seed(args.seed)
 
 # In[]:
 
-input_file=imagenames[args.knum]
-input_mask=masknames[args.knum]
+
+
+# put data in a pipeline
+data = base_classes.pipedata()
 
 print(f"#{input_file=}")
 print(f"#{input_mask=}")
