@@ -41,6 +41,10 @@ random.seed(args.seed)
 
 # In[]:
 
+#TODO make this a KOMATSUNA measure
+input_file=imagenames[args.knum]
+input_mask=imagenames[args.knum]
+
 
 
 # put data in a pipeline
