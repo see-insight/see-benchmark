@@ -1,5 +1,15 @@
 # see-benchmark
-Tools for running research benchmarks on shared HPC systems
+Tools for running research benchmarks on shared HPC systems.  If you just cloned this directory try running the following command to get started:
+
+```./hpcc_build.sh```
+
+More detailed instructinos are below.  
+
+Assuming the above installation worked, there are multiple benchmarks that can be run from this directory.  Look for the '''<<NAME>>_Batch.sb''' file to run each exmple. Supporting files will have other names and extentions including:
+
+* '''<<NAME>>_Results.ipynb''' - Jupyter notebooks to view results form the benchmark.
+* '''<<NAME>>_Results.sb''' - File to consolodate data from the benchmarks. (only required on the really big runs)
+* '''<<NAME>>_<<keyword>>.py''' - Python file used by the other scripts to manage the run.
 
 ## HPCC singularity overlay
 These instructions are specific to the HPCC at MSU.  
