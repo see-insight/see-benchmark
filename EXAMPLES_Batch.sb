@@ -15,7 +15,7 @@ singularity exec -B /usr/bin/:/sysbin/ \
                  --env-file /opt/software/powertools/share/jupyter.env \
                  --writable-tmpfs \
                  centos7.sif \
-                 ./runExample.sh $SLURM_ARRAY_TASK_ID $(( $SLURM_JOB_ID + $SLURM_ARRAY_TASK_ID ))
+                 ./EXAMPLES_run.sh $SLURM_ARRAY_TASK_ID $(( $SLURM_JOB_ID + $SLURM_ARRAY_TASK_ID ))
 
 echo "FINNISHED RUNNING JOB"
 

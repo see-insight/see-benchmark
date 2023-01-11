@@ -20,7 +20,7 @@ timeout 14100s singularity exec -B /usr/bin/:/sysbin/ \
                  --writable-tmpfs \
                  --env-file /opt/software/powertools/share/jupyter.env \
                  centos7.sif \
-                 ./runExample.sh $SLURM_ARRAY_TASK_ID $(( $SLURM_ARRAY_TASK_ID + $SLURM_JOB_ID )) coninuousrun
+                 ./EXAMPLES_run.sh $SLURM_ARRAY_TASK_ID $(( $SLURM_ARRAY_TASK_ID + $SLURM_JOB_ID )) coninuousrun
 out=$?
 echo "CHECKING FOR ERRORS"
 

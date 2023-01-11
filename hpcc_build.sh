@@ -14,7 +14,7 @@ singularity build centos7.sif /opt/software/CentOS.container/7.4/bin/centos
 
 singularity sif add --datatype 4 --partfs 2 --parttype 4 --partarch 2 --groupid 1 centos7.sif overlay.img
 
-sbatch runExamples.sb 
+sbatch EXAMPLES_batch.sh 
 
 
 

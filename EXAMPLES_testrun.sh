@@ -14,4 +14,4 @@ then
 fi
 
 
-source ./runExamples.sb
+source ./EXAMPLES_Batch.sb 
