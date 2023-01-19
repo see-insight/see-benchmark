@@ -3,6 +3,7 @@
 #SBATCH --mem=2gb
 #SBATCH --array=1-300
 #SBATCH --job-name=SEE-KOMATSUNA
+#SBATCH --output=./KOMATSUNA_Benchmark_Output/slurm-%A_%a.out
 
 cd see-segment; git log -n 1; cd ..
 
