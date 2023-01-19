@@ -3,12 +3,11 @@
 #SBATCH --time=24:00:00
 #SBATCH --mem=6gb
 #SBATCH --job-name=SEE-Benchmark
-#SBATCH --output=./Benchmark_Examples/slurm-%A_%a.out
+#SBATCH --output=./EXAMPLES_Benchmark_Output/slurm-%A_%a.out
 
 cd see-segment; git log -1;cd .. 
 
 echo "RunExamples Number $SLURM_ARRAY_TASK_ID"
-
 
 singularity exec -B /usr/bin/:/sysbin/ \
                  --env PATH=/miniconda3/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/sysbin/ \
