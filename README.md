@@ -1,7 +1,7 @@
 # see-benchmark
 Tools for running research benchmarks on shared HPC systems.  If you just cloned this directory try running the following command to get started:
 
-```./hpcc_build.sh```
+```source ./hpcc_build.sh```
 
 More detailed instructinos are below.  
 
