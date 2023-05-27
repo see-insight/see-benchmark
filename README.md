@@ -1,7 +1,7 @@
 # see-benchmark
 Tools for running research benchmarks on shared HPC systems.  If you just cloned this directory try running the following command to get started:
 
-```source ./hpcc_build.sh```
+```source ./HPCC_INSTALL.sh```
 
 More detailed instructinos are below.  
 
@@ -11,32 +11,7 @@ Assuming the above installation worked, there are multiple benchmarks that can b
 * '''<<NAME>>_Results.sb''' - File to consolodate data from the benchmarks. (only required on the really big runs)
 * '''<<NAME>>_<<keyword>>.py''' - Python file used by the other scripts to manage the run.
 
-## HPCC singularity overlay
-These instructions are specific to the HPCC at MSU.  
-
-### Step 0: Clone this repository
-
-```git clone https://github.com/see-insight/see-benchmark.git``` 
-
-```cd see-benchmark```
-
-### Step 1: Run the installer  
-
-```source INSTALL.sh```
-
-WAIT.......
-
-### Step 2: Run a test localy
-
-```./testrunlocal.sh```
-
-```<<ctrl-c to stop>>```
-
-### Step 3: Run continuous run script
-
-```sbatch continuousrun.sb```
-
-### Step 4: View results on Jupyter
+# Jupyter OnDemand using Singularity
 
 For these steps to work you need access to the "beta" group to use a singularity image in jupyter. If you have access to this group you should be able to run this singularity image using the following settings:
 
