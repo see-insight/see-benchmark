@@ -10,7 +10,7 @@ then
     echo "see-segment already found"
 else
     echo "Downloading see-segment"
-    git clone https://github.com/see-insight/see-segment.git
+    git clone git@github.com:see-insight/see-segment.git 
 fi
 
 #Create base overlay
