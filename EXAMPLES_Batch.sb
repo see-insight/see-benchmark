@@ -5,13 +5,22 @@
 #SBATCH --job-name=SEE-Benchmark
 #SBATCH --output=./EXAMPLES_Benchmark_Output/slurm-%A_%a.out
 
+echo "Running on $HOSTNAME"
+
 cd see-segment; git log -1;cd .. 
 
 echo "RunExamples Number $SLURM_ARRAY_TASK_ID"
 
+if [ ! -d /opt/software ]
+then
+	echo "ERROR no /opt/software found"
+	ls /opt/software
+fi
+
+
 singularity exec -B /usr/bin/:/sysbin/ \
                  --env PATH=/miniconda3/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/sysbin/ \
-                 --env-file /opt/software/powertools/share/jupyter.env \
+                 --env-file ./jupyter.env \
                  --writable-tmpfs \
                  centos7.sif \
                  ./EXAMPLES_run.sh $SLURM_ARRAY_TASK_ID $(( $SLURM_JOB_ID + $SLURM_ARRAY_TASK_ID ))
